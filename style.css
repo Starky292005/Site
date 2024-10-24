@@ -1,0 +1,195 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background Image */
+body {
+    background: url('https://c4.wallpaperflare.com/wallpaper/531/951/621/digital-digital-art-artwork-illustration-minimalism-hd-wallpaper-preview.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Prevent body scrolling */
+}
+
+/* Header */
+header {
+    background: transparent;
+    color: #fff;
+    padding: 0px; /* Reduced padding */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    font-size: 1.5rem; /* Reduced font size */
+    text-align: center;
+}
+
+/* Main Layout */
+.main {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+/* Sidebar for buttons */
+.sidebar {
+    width: 200px;
+    background: transparent;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Allow sidebar to scroll */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.sidebar a {
+    margin: 10px 0;
+    padding: 15px; /* Uniform padding */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    line-height: 1.5; /* Increased line height */
+    height: 50px; /* Fixed height to prevent clipping */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    transition: background 0.3s ease, transform 0.3s ease;
+    position: relative; /* For ripple effect */
+    overflow: hidden; /* Prevents ripple from overflowing */
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto; /* Allow content to scroll */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Hide scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5); /* Color of the scrollbar */
+    border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.7); /* Color on hover */
+}
+
+/* Cards */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px 0;
+    color: #fff;
+    position: relative; /* For ripple effect */
+    overflow: hidden; /* Prevents ripple from overflowing */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Section Titles */
+.card h2 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Section Content */
+.card p, ul {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+ul {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+/* Animation Styles */
+.section {
+    opacity: 0;
+    transform: translateY(100px); /* Start from the bottom */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.active {
+    opacity: 1;
+    transform: translateY(0); /* Move to natural position */
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #fff; /* Icon color */
+    font-size: 1.5rem; /* Icon size */
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ccc; /* Icon hover color */
+}
+
+/* Hide scrollbar when hovering */
+.content:hover + .sidebar {
+    opacity: 0; /* Hide sidebar */
+}
+
+.sidebar:hover {
+    opacity: 1; /* Show sidebar when hovering over it */
+}
+
+.content:hover {
+    opacity: 1; /* Show content when hovering over it */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+    }
+    .content {
+        padding: 10px;
+    }
+}
